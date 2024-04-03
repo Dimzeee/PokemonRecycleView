@@ -14,9 +14,15 @@ class PokemonAdapter(private val pokemonList: List<Pokemon>) : RecyclerView.Adap
     data class Pokemon(val name: String, val imageUrl: String, val abilities: List<String>)
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val pokemonImage: ImageView = view.findViewById(R.id.pokemon_image)
-        val pokemonName: TextView = view.findViewById(R.id.pokemon_name)
-        val pokemonAbilities: TextView = view.findViewById(R.id.pokemon_abilities)
+        val pokemonImage: ImageView
+        val pokemonName: TextView
+        val pokemonAbilities: TextView
+
+        init {
+            pokemonImage = view.findViewById(R.id.pokemon_image)
+            pokemonName = view.findViewById(R.id.pokemon_name)
+            pokemonAbilities = view.findViewById(R.id.pokemon_abilities)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
