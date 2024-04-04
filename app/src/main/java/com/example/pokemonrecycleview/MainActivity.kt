@@ -22,11 +22,17 @@ class MainActivity : AppCompatActivity() {
 
         rvPokemon = findViewById(R.id.pokemon_list)
         pokemonList = mutableListOf()
-        getPokemonData()
+        val adapter = PokemonAdapter(pokemonList)
+        rvPokemon.adapter = adapter
+        rvPokemon.layoutManager = LinearLayoutManager(this@MainActivity)
+        rvPokemon.addItemDecoration(DividerItemDecoration(this@MainActivity, LinearLayoutManager.VERTICAL))
+        for (i in 1..20) {
+            val randPokemonId = (1..1302).random()
+            getPokemonData(randPokemonId)
+        }
     }
 
-    private fun getPokemonData() {
-        val randPokemonId = (1..807).random() // There are 807 Pokémon in total
+    private fun getPokemonData(randPokemonId:Int) {
         val url = "https://pokeapi.co/api/v2/pokemon/$randPokemonId"
 
         val client = AsyncHttpClient()
@@ -50,11 +56,8 @@ class MainActivity : AppCompatActivity() {
 
                 val pokemon = PokemonAdapter.Pokemon(name.capitalize(), imageUrl, abilitiesList)
                 pokemonList.add(pokemon)
+                rvPokemon?.adapter?.notifyDataSetChanged()
 
-                val adapter = PokemonAdapter(pokemonList)
-                rvPokemon.adapter = adapter
-                rvPokemon.layoutManager = LinearLayoutManager(this@MainActivity)
-                rvPokemon.addItemDecoration(DividerItemDecoration(this@MainActivity, LinearLayoutManager.VERTICAL))
             }
 
             override fun onFailure(
