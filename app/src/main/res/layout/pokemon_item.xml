@@ -13,8 +13,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/akronim"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
+        android:textColor="@color/design_default_color_primary"
         android:textSize="48sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,9 +28,9 @@
         android:layout_width="409dp"
         android:layout_height="95dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/amarante"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="34sp"
+        android:textAppearance="@style/TextAppearance.Quote"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -39,10 +40,10 @@
 
     <ImageView
         android:id="@+id/pokemon_image"
-        android:layout_width="416dp"
-        android:layout_height="305dp"
+        android:layout_width="404dp"
+        android:layout_height="316dp"
         android:layout_marginTop="228dp"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="-5dp" />
+        tools:layout_editor_absoluteX="4dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
